@@ -1,0 +1,26 @@
+{
+  "name": "tstemplate",
+  "version": "1.0.0",
+  "description": "A simple template for a TypeScript project",
+  "main": "src/tstemplate/main.ts",
+  "scripts": {
+    "start": "yarn ts-node src/tstemplate/main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamWarden/tstemplate.git"
+  },
+  "author": "SamWarden",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SamWarden/tstemplate/issues"
+  },
+  "homepage": "https://github.com/SamWarden/tstemplate#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^20.11.24",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.3.3"
+  }
+}
