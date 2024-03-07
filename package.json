@@ -2,7 +2,9 @@
   "name": "tstemplate",
   "version": "1.0.0",
   "description": "A simple template for a TypeScript project",
-  "main": "src/tstemplate/main.ts",
+  "exports": {
+    "./*": "./src/tstemplate/*.ts"
+  },
   "scripts": {
     "start": "yarn ts-node src/tstemplate/main.ts"
   },

@@ -2,7 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "target": "ES2022",
-    "module": "commonjs",
+    "module": "nodenext",
     "emitDecoratorMetadata": true,
     "declaration": true,
     "experimentalDecorators": true,
@@ -21,6 +21,6 @@
   },
   "include": [
     "./src",
-    "./tests"
+    "./test"
   ]
 }
