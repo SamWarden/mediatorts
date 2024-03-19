@@ -9,8 +9,9 @@
     "esModuleInterop": true,
     "incremental": true,
     "sourceMap": true,
-    "outDir": "./dist",
+    "rootDir": ".",
     "baseUrl": "./src",
+    "outDir": "./dist",
     "resolveJsonModule": true,
     "allowJs": true,
     "paths": {
