@@ -1,3 +1,3 @@
-# Tstemplate
+# Mediatorts
 
-Template for a TypeScript project
+A simple mediator to send requests and publish events
