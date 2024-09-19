@@ -1,24 +1,20 @@
 {
-  "name": "tstemplate",
-  "version": "1.0.0",
-  "description": "A simple template for a TypeScript project",
-  "exports": {
-    "./*": "./src/tstemplate/*.ts"
-  },
-  "scripts": {
-    "start": "yarn ts-node src/tstemplate/main.ts"
-  },
+  "name": "@meamone/mediatorts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "version": "0.0.1",
+  "description": "A simple mediator",
+  "scripts": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/SamWarden/tstemplate.git"
+    "url": "git+https://github.com/SamWarden/mediatorts.git"
   },
   "author": "SamWarden",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/SamWarden/tstemplate/issues"
+    "url": "https://github.com/SamWarden/mediatorts/issues"
   },
-  "homepage": "https://github.com/SamWarden/tstemplate#readme",
-  "dependencies": {},
+  "homepage": "https://github.com/SamWarden/mediatorts#readme",
   "devDependencies": {
     "@types/node": "^20.11.24",
     "ts-node": "^10.9.2",
