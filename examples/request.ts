@@ -1,11 +1,3 @@
-# Mediatorts
-
-A simple mediator to send requests and publish events
-
-
-### Example
-
-```ts
 import {Handler, IocFactory, MediatorFactory, Request} from "@meamone/mediatorts"
 
 class GetUserById implements Request<string> {
@@ -37,4 +29,3 @@ async function main() {
 }
 
 main()
-```
