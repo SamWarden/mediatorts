@@ -29,11 +29,12 @@ async function main() {
   iocFactory.register(GetUserByIdHandler, async (ctx, callback) => callback(new GetUserByIdHandler({1: "Jack Bolt"})))
   const mediatorFactory = new MediatorFactory()
   mediatorFactory.registerRequest(GetUserById, GetUserByIdHandler)
-  await iocFactory.createIoc(async (ioc) => {
+  const result = await iocFactory.createIoc(async (ioc) => {
     const mediator = mediatorFactory.createMediator(ioc)
     const result = await mediator.send(new GetUserById(1))
-    console.log("Result:", result)  // "Result: Jack Bolt"
+    return result
   }, {})
+  console.log("Result:", result)  // "Result: Jack Bolt"
 }
 
 main()
