@@ -1,4 +1,4 @@
-import { CallbackDependency, DependenciesFactories, DependencyFactory, Ioc, IocContext } from "./interface/ioc"
+import { CallbackDependency, Class, DependenciesFactories, DependencyFactory, Ioc, IocContext } from "./interface/ioc"
 
 export type IocCallback<Res> = (ioc: Ioc) => Promise<Res>
 
@@ -8,8 +8,11 @@ export class IocImpl implements Ioc {
     public readonly context: IocContext,
   ) {}
 
-  async provide<Dependency extends { name: string }>(cls: Dependency, callback: CallbackDependency<Dependency>): Promise<Dependency> {
-    const factory: DependencyFactory<Dependency> = this.dependenciesFactories[cls.name]
+  async provide<Dependency>(cls: Class<Dependency>, callback: CallbackDependency<Dependency>): Promise<any> {
+    const factory = this.dependenciesFactories.get(cls)
+    if (factory === undefined) {
+      throw TypeError(`Factory is undefined for this dependency: ${cls}`)
+    }
     return await factory(this.context, callback)
   }
 }
@@ -20,14 +23,14 @@ export class IocFactory {
   constructor(
     private readonly singletoneContext: IocContext = {},
   ) {
-    this.dependenciesFactories = {}
+    this.dependenciesFactories = new Map()
   }
 
   register<
     Dependency,
-    DependencyType extends new(...args: any) => Dependency,
+    DependencyType extends Class<Dependency>,
   >(cls: DependencyType, factory: DependencyFactory<Dependency>): void {
-    this.dependenciesFactories[cls.name] = factory
+    this.dependenciesFactories.set(cls, factory)
   }
 
   async createIoc<Res>(callback: IocCallback<Res>, additionalContext: IocContext = {}): Promise<Res> {
