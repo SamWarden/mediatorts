@@ -16,7 +16,7 @@ class GetUserById implements Request<string> {
 
 class GetUserByIdHandler implements Handler<GetUserById, string> {
   constructor(
-    private readonly users: {[key: number]: string},
+    private readonly users: Record<number, string>,
   ) {}
 
   async handle(request: GetUserById): Promise<string> {
